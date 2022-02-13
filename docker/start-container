@@ -14,7 +14,7 @@ if [ $# -gt 0 ]; then
     exec "$@"
 else
     cp .env.example .env
-    composer install -n
+    composer install -n && php artisan key:generate && php artisan migrate:fresh
     npm install && npm run prod
     /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
 fi
