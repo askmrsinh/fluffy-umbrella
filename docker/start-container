@@ -15,7 +15,7 @@ if [ $# -gt 0 ]; then
 else
     cp .env.example .env
     composer install -n && \\
-        /usr/bin/php artisan config:clear --force && \
+        /usr/bin/php artisan optimize:clear --force && \
         /usr/bin/php artisan migrate:fresh --force
     npm install && npm run prod
     printenv | sort
