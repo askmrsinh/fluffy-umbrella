@@ -10,7 +10,9 @@ services:
             - 'host.docker.internal:host-gateway'
         ports:
             - '${APP_PORT:-443}:443'
-        env_file: '${ENV_FILE:-.env.example}'
+        env_file:
+            - .env.example
+            - .env
         environment:
             LARAVEL_SAIL: 0
             XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
@@ -25,6 +27,9 @@ services:
         image: 'mysql/mysql-server:8.0'
         ports:
             - '${FORWARD_DB_PORT:-3306}:3306'
+        env_file:
+          - .env.example
+          - .env
         environment:
             MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ROOT_HOST: "%"
