@@ -17,7 +17,7 @@ else
     printenv | sort
     composer install -n && \
         /usr/bin/php artisan key:generate && \
-        /usr/bin/php optimize:clear && \
+        /usr/bin/php artisan optimize:clear && \
         /usr/bin/php artisan migrate:fresh
     npm install && npm run prod
     printenv | sort
