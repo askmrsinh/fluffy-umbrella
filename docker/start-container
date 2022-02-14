@@ -14,9 +14,9 @@ if [ $# -gt 0 ]; then
     exec "$@"
 else
     cp .env.example .env
-    printenv | sort
     composer install -n && \
-        /usr/bin/php artisan config:cache && \
+        /usr/bin/php artisan key:generate && \
+        /usr/bin/php artisan config:clear && \
         /usr/bin/php artisan migrate:fresh --force
     npm install && npm run prod
     printenv | sort
