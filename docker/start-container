@@ -14,14 +14,11 @@ if [ $# -gt 0 ]; then
     exec "$@"
 else
     cp .env.example .env
-    source .env
     printenv | sort
     composer install -n && \
-        /usr/bin/php artisan key:generate && \
         /usr/bin/php artisan config:cache && \
         /usr/bin/php artisan migrate:fresh --force
     npm install && npm run prod
-    source .env
     printenv | sort
     /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
 fi
