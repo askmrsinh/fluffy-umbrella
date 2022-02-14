@@ -20,7 +20,7 @@ else
         /usr/bin/php artisan optimize:clear && \
         /usr/bin/php artisan config:cache && \
         /usr/bin/php artisan migrate:fresh
-    npm install && npm run prod
+    npm install && npm run dev
     printenv | sort
     /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
 fi
