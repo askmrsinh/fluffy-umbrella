@@ -18,7 +18,7 @@ else
     composer install -n && \
         /usr/bin/php artisan config:cache && \
         /usr/bin/php artisan migrate:fresh --force
-    npm install && npm run prod
+    npm install && npm run dev
     #/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
     /usr/bin/php -d variables_order=EGPCS /var/www/html/artisan serve --host=0.0.0.0 --port=443
 fi
