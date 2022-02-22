@@ -16,6 +16,7 @@ else
     cp .env.example .env
     source .env
     composer install -n && \
+        /usr/bin/php artisan config:cache && \
         /usr/bin/php artisan migrate:fresh --force
     npm install && npm run prod
     #/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
